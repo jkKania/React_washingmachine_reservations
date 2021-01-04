@@ -3,14 +3,7 @@ import _reduce from "lodash/reduce";
 import * as types from "./../actions/actionTypes";
 import { WEEK_DAYS } from "../common/constants";
 
-const defaultState = _reduce(
-  WEEK_DAYS,
-  (result, entry) => {
-    result[entry] = [];
-    return result;
-  },
-  {}
-);
+const defaultState = _reduce( WEEK_DAYS, (result, entry) => { result[entry] = []; return result; }, {});
 
 export default (state = defaultState, action) => {
   switch (action.type) {

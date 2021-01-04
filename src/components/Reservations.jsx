@@ -11,6 +11,7 @@ import { clearReservations, saveReservations } from "../actions/machine";
 import SingleDayReservations from "./SingleDayReservations";
 import "./Reservations.scss";
 
+
 const validate = (values) => {
   const errors = {};
 
@@ -29,7 +30,7 @@ const validate = (values) => {
         reservationError.start = "Can not be empty";
         reservationError.end = "Can not be empty";
       }
-      
+
       if (!reservation.start)
         reservationError.start = "Can not be empty";
 
@@ -46,8 +47,10 @@ const validate = (values) => {
           if (moment(previousReservation.end).add(15, "minutes").isSameOrAfter(reservation.start))
             reservationError.start = "Two reservations too close to each other";
           else if(moment(reservation.start).add(5, "minutes").isBetween(previousReservation.start, previousReservation.end))
+          {
             reservationError.start = "Conflict between two reservations";
             reservationError.end = "Conflict between two reservations";
+          }
         }
       }
       

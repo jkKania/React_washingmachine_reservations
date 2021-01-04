@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Reservations } from "./components";
+import { Reservations, Users } from "./components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Users } from "./components/Users";
 import { NavbarComponent } from "./components/NavbarComponent";
 
 export default class App extends Component {
