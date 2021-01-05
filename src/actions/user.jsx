@@ -1,8 +1,8 @@
 import * as types from "./actionTypes";
 
-export const createUser = (payload) => ({
+export const createUser = (user) => ({
     type: types.CREATE_USER,
-    user: payload
+    user: {...user}
 })
 export const clearUsers = () => ({
     type: types.CLEAR_USERS,
