@@ -5,6 +5,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { NavbarComponent } from "./components/NavbarComponent";
 
 export default class App extends Component {
+  handleSubmit = (values) => {
+    // print the form values to the console
+    console.log(values);
+  };
   render() {
     return (
       <div>

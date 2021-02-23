@@ -1,13 +1,13 @@
 import * as types from "./actionTypes";
-
+import { nanoid } from "nanoid";
 export const createUser = (user) => ({
-    type: types.CREATE_USER,
-    user: {...user}
-})
+  type: types.CREATE_USER,
+  user: { id: nanoid(), ...user },
+});
 export const clearUsers = () => ({
-    type: types.CLEAR_USERS,
-})
-export const deleteUser = (payload) => ({
-    type: types.DELETE_USER,
-    user: payload
-})
+  type: types.CLEAR_USERS,
+});
+export const deleteUser = (id) => ({
+  type: types.DELETE_USER,
+  id: id,
+});

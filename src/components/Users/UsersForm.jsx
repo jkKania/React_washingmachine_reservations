@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { reduxForm, Field, Form } from "redux-form";
+import { reduxForm, Form, Field, reset } from "redux-form";
 import {
   Card,
   Button,
@@ -9,19 +9,23 @@ import {
   Container,
   Label,
   CardTitle,
-  Input,
 } from "reactstrap";
-import { createUser, clearUsers, deleteUser } from "../actions/user";
 import ReactJson from "react-json-view";
 
+import { createUser, clearUsers } from "../../actions/user";
+import { usersInput } from "./UsersInput";
+import validate from "./validate";
 
-const onInputChange = (target) => {
-  var name = target.name;
-  var value = target.value;
+const afterSubmit = (result, dispatch) => dispatch(reset("users"));
 
-};
-
-const Users = ({ createUser,onInputChange ,clearUsers, handleSubmit, user, submitting }) => (
+const UsersForm = ({
+  createUser,
+  clearUsers,
+  handleSubmit,
+  users,
+  submitting,
+}) => {
+  return (
     <Container>
       <Card className="card">
         <CardBody>
@@ -29,38 +33,36 @@ const Users = ({ createUser,onInputChange ,clearUsers, handleSubmit, user, submi
           <Form onSubmit={handleSubmit(createUser)}>
             <FormGroup>
               <Label for="firstName">First name: </Label>
-              <Input
+              <Field
                 type="text"
                 name="firstName"
-                component="input"
+                component={usersInput}
                 placeholder="First name "
-                // onChange={(e) => onInputChange(e.target)}
               />
             </FormGroup>
             <FormGroup>
               <Label for="lastName">Last name:</Label>
-              <Input
+              <Field
                 type="text"
                 name="lastName"
-                component="input"
+                component={usersInput}
                 placeholder="Last name "
-                // onChange={(e) => onInputChange(e.target)}
               />
             </FormGroup>
             <FormGroup>
               <Label for="roomNumber">Room number:</Label>
-              <Input
+              <Field
                 type="number"
                 name="roomNumber"
-                component="input"
+                component={usersInput}
                 initialValues="0"
                 placeholder="Room number "
-                // onChange={(e) => onInputChange(e.target)}
               />
             </FormGroup>
             <Button color="secondary" type="submit" disabled={submitting}>
               Create user
             </Button>
+
             <Button
               onClick={clearUsers}
               color="warning"
@@ -72,12 +74,13 @@ const Users = ({ createUser,onInputChange ,clearUsers, handleSubmit, user, submi
         </CardBody>
       </Card>
 
-      <ReactJson src={user} name="userStoreState" />
+      <ReactJson src={users} name="userStoreState" />
     </Container>
-);
+  );
+};
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  users: state.user,
 });
 
 const mapDispatchToProps = {
@@ -90,5 +93,7 @@ export default connect(
 )(
   reduxForm({
     form: "users",
-  })(Users)
+    validate,
+    onSubmitSuccess: afterSubmit,
+  })(UsersForm)
 );

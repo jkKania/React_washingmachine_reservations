@@ -1,0 +1,22 @@
+.reservations {
+  margin-top: 3rem;
+}
+
+.reservations__clear-btn {
+  margin-top: 1rem;
+}
+
+.reservations__single-entry {
+  margin: 1rem 0;
+}
+
+.reservations__remove-btn {
+  margin-left: 1rem;
+  padding-top: 2px;
+  height: 28px;
+}
+
+.reservations__error {
+  color: red;
+}
+/*# sourceMappingURL=Reservations.css.map */
