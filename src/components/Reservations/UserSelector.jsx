@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 const UserSelector = ({ users }) => (
   <select className="form-control">
+    <option selected disabled>
+      Select
+    </option>
     {users.map((user, index) => (
       <option key={index} value={user}>
         {user.firstName} {user.lastName}

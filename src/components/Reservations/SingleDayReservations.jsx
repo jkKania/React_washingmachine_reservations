@@ -19,13 +19,13 @@ const SingleDayReservations = ({ fields, meta: { error } }) => {
           <Col xs={{ size: 2, offset: 0 }}>
             <Field name={`${name}.start`} component={TimePickerWrapper} />
           </Col>
-          <Col xs={{ size: 2, offset: 0 }}>
+          <Col xs={{ size: 2, offset: 1 }}>
             <Field name={`${name}.end`} component={TimePickerWrapper} />
           </Col>
-          <Col xs={{ size: 2, offset: 0 }}>
+          <Col xs={{ size: 2, offset: 1 }}>
             <Field name={`${name}.user`} component={UserSelector} />
           </Col>
-          <Col xs={{ size: 1, offset: 0 }}>
+          <Col xs={{ size: 1, offset: 1 }}>
             <Button
               onClick={() => {
                 fields.remove(index);

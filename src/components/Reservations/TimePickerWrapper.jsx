@@ -6,6 +6,7 @@ const TimePickerWrapper = ({ input: { onChange, value }, meta: { error } }) => {
   return (
     <React.Fragment>
       <DatePicker
+        className="form-control"
         selected={value}
         onChange={onChange}
         showTimeSelect
