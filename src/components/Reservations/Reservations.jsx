@@ -4,13 +4,17 @@ import { reduxForm, FieldArray, Form } from "redux-form";
 import { Button, Container, Row, Col } from "reactstrap";
 import _map from "lodash/map";
 import ReactJson from "react-json-view";
-import moment from "moment";
 
 import { WEEK_DAYS } from "../../common/constants";
 import { clearReservations, saveReservations } from "../../actions/machine";
 import SingleDayReservations from "./SingleDayReservations";
 import "./Reservations.scss";
 import validate from "./validateReservation";
+
+const submit = (values) => {
+  // print the form values to the console
+  console.log(values);
+};
 
 const Reservations = ({
   clearReservations,

@@ -45,6 +45,7 @@ const validate = (values) => {
           }
         }
       }
+
       previousReservation = reservation;
       singleDayReservationErrors.push(reservationError);
     });

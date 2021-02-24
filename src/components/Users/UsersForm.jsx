@@ -14,7 +14,7 @@ import ReactJson from "react-json-view";
 
 import { createUser, clearUsers } from "../../actions/user";
 import { usersInput } from "./UsersInput";
-import validate from "./validate";
+import validate from "./validateUser";
 
 const afterSubmit = (result, dispatch) => dispatch(reset("users"));
 

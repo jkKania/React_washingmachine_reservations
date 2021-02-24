@@ -12,7 +12,7 @@ const TimePickerWrapper = ({ input: { onChange, value }, meta: { error } }) => {
         showTimeSelect
         showTimeSelectOnly
         timeIntervals={15}
-        dateFormat="h:mm aa"
+        dateFormat="MM-DD-YYYY"
         timeCaption="Time"
       />
       <span className="reservations__error">{error}</span>

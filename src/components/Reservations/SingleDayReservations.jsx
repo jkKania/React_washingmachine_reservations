@@ -43,7 +43,7 @@ const SingleDayReservations = ({ fields, meta: { error } }) => {
       <Col xs={{ size: 3, offset: 6 }}>
         <Button
           onClick={() => {
-            fields.push({ start: null, end: null });
+            fields.push({ start: null, end: null, user: null });
           }}
           color="warning"
           className="reservations__clear-btn"
